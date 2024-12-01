@@ -4,7 +4,8 @@
 # , или Счет 73654108430135874305.
 # Разделять строку на 2 аргумента(отдельно имя, отдельно номер) нельзя!
 
-from masks import get_mask_account, get_mask_card_number
+# from masks import get_mask_account, get_mask_card_number
+from src import masks
 
 
 def mask_account_or_card(info_by_card_or_account: str) -> str:
@@ -13,13 +14,14 @@ def mask_account_or_card(info_by_card_or_account: str) -> str:
     # Разбиваем строку по пробелам на список
     number_info = info_by_card_or_account.split()
     number = str(number_info[-1])
+    mask =""
 
     # проверяем все ли символы являются цифрами в последнем элементе
     if number.isdigit():
         if len(number) == 20:
-            mask = get_mask_account(number)
+            mask = masks.get_mask_account(number)
         elif len(number) == 16:
-            mask = get_mask_card_number(number)
+            mask = masks.get_mask_card_number(number)
     else:
         return " Ошибка в наборе номера "
 
@@ -31,20 +33,20 @@ def mask_account_or_card(info_by_card_or_account: str) -> str:
     return " ".join(number_info)
 
 
-def get_date(data_str: str) -> str:
+def get_date(user_date: str) -> str:
     """Bозвращает строку с датой в формате "ДД.ММ.ГГГГ" """
 
     # берем нужный срез с датой и заменяем - на .
-    data_str_new = data_str[:10].replace("-", ".")
+    date_new = user_date[:10].replace("-", ".")
 
     # резбиваем полученную строку на список по .
-    data_str_new_list = data_str_new.split(".")
+    date_new_list = date_new.split(".")
 
     # переворачиваем список
-    data_str_new_sort = data_str_new_list[::-1]
+    date_new_sort = date_new_list[::-1]
 
     # возвращаем результат, объединив элементы полученного списка в строку
-    return ".".join(data_str_new_sort)
+    return ".".join(date_new_sort)
 
 
 # В том же модуле создайте функцию
@@ -55,9 +57,9 @@ def get_date(data_str: str) -> str:
 if __name__ == "__main__":
 
     # возвращаем строку с замаскиованным номером
-    info_by_card_or_account = input("Введите информацию о счете или карте: ")
-    mask_number = mask_account_or_card(info_by_card_or_account)
-    print(mask_account_or_card(info_by_card_or_account))
+    user_info_by_card_or_account = input("Введите информацию о счете или карте: ")
+    mask_number = mask_account_or_card(user_info_by_card_or_account)
+    print(mask_account_or_card(user_info_by_card_or_account))
 
     # Пример для карты
     # Visa Platinum 7000792289606361  # входной аргумент
@@ -68,8 +70,8 @@ if __name__ == "__main__":
     # Счет **4305  # выход функции
 
     # возвращаем дату в формате "ДД.ММ.ГГГГ"
-    data_str = str(input("Введите дату: "))
-    print(get_date(data_str))
+    date = str(input("Введите дату: "))
+    print(get_date(date))
 
 
 # "2024-03-11T02:26:18.671407" # входной аргумент
