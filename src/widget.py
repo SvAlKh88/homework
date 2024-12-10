@@ -4,9 +4,8 @@
 # , или Счет 73654108430135874305.
 # Разделять строку на 2 аргумента(отдельно имя, отдельно номер) нельзя!
 
-# from masks import get_mask_account, get_mask_card_number
-from src import masks
-
+# from src import masks
+from src.masks import get_mask_account, get_mask_card_number
 
 def mask_account_or_card(info_by_card_or_account: str) -> str:
     """Получает информацию о карте или счете и возвращеет маску номера карты или счета"""
@@ -14,14 +13,14 @@ def mask_account_or_card(info_by_card_or_account: str) -> str:
     # Разбиваем строку по пробелам на список
     number_info = info_by_card_or_account.split()
     number = str(number_info[-1])
-    mask =""
+    mask = ""
 
     # проверяем все ли символы являются цифрами в последнем элементе
     if number.isdigit():
         if len(number) == 20:
-            mask = masks.get_mask_account(number)
+            mask = get_mask_account(number)
         elif len(number) == 16:
-            mask = masks.get_mask_card_number(number)
+            mask = get_mask_card_number(number)
     else:
         return " Ошибка в наборе номера "
 
