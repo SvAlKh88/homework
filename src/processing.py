@@ -1,4 +1,7 @@
-def filter_by_state(list_of_id: list[{}], state: str = "EXECUTED") -> list[{}]:
+from typing import Any, Dict, List
+
+
+def filter_by_state(list_of_id: List[Dict[str, Any]], state: str = "EXECUTED") -> List[Dict[str, Any]]:
     """Принимает список словарей и опционально значение для ключа
     и возвращает новый список словарей, содержащий только те словари,
     у которых ключ соответствует указанному значению"""
@@ -6,15 +9,15 @@ def filter_by_state(list_of_id: list[{}], state: str = "EXECUTED") -> list[{}]:
     filter_list = []
 
     # перебираем позиции в списке
-    for i in list_of_id:
+    for info_about_id in list_of_id:
         # перебираем по ключу "state"
-        if i["state"] == state:
+        if info_about_id["state"] == state:
             # если значение равно заданному, добавляем в новый список
-            filter_list.append(i)
+            filter_list.append(info_about_id)
     return filter_list
 
 
-def sort_by_date(list_of_id: list[{}], rev: bool = True) -> list[{}]:
+def sort_by_date(list_of_id: List[Dict[str, Any]], rev: bool = True) -> List[Dict[str, Any]]:
     """Принимает список словарей и необязательный параметр, задающий порядок сортировки (по умолчанию — убывание).
     Функция должна возвращать новый список, отсортированный по дате"""
 
