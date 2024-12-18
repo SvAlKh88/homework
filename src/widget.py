@@ -7,6 +7,7 @@
 # from src import masks
 from src.masks import get_mask_account, get_mask_card_number
 
+
 def mask_account_or_card(info_by_card_or_account: str) -> str:
     """Получает информацию о карте или счете и возвращеет маску номера карты или счета"""
 
