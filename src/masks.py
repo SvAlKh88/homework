@@ -1,4 +1,7 @@
-def get_mask_card_number(user_card_number: int | str) -> str:
+from typing import Union
+
+
+def get_mask_card_number(user_card_number: Union[str, int]) -> str:
     """Принимает на вход номер карты и возвращает ее маску"""
     if len(str(user_card_number)) == 16 and str(user_card_number).isdigit():
         return f"{str(user_card_number)[:4]} {str(user_card_number)[4:6]}** **** {str(user_card_number)[12:]}"
@@ -11,7 +14,7 @@ def get_mask_card_number(user_card_number: int | str) -> str:
 # 7000 79** **** 6361  # выход функции
 
 
-def get_mask_account(user_mask_account: str) -> str:
+def get_mask_account(user_mask_account: Union[str, int]) -> str:
     """Принимает на вход номер счета и возвращает его маску"""
     if len(str(user_mask_account)) == 20 and str(user_mask_account).isdigit():
         return f"**{str(user_mask_account)[16:]}"
@@ -24,7 +27,7 @@ def get_mask_account(user_mask_account: str) -> str:
 # **4305  # выход функции
 
 if __name__ == "__main__":
-    user_card_number = str(input("Введите номер карты:"))
-    user_mask_account = str(input("Введите номер счета:"))
-    print(get_mask_card_number(user_card_number))
-    print(get_mask_account(user_mask_account))
+    user_card_number_input = str(input("Введите номер карты: "))
+    user_mask_account_input = str(input("Введите номер счета: "))
+    print(get_mask_card_number(user_card_number_input))
+    print(get_mask_account(user_mask_account_input))
