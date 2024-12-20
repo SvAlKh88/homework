@@ -127,17 +127,11 @@ Visa Platinum 7000 79** **** 6361  # выход функции
 
 ### Информация о тестировании
 
+```
+src/__init__.py   -  100 %
+src/widget.py     -  86 %
+src/processing.py -  76 %
+src/masks.py      -  71 %
 
-File________________/___________________________________________
-                /
-
-
-
-
-
-	       statements	        missing	        excluded	      coverage
-src/masks.py	 14	4	0	                  71%
-src/processing.py	17	4	0	       76%
-src/widget.py	28	4	0	86%
-src/__init__.py	0	0	0	100%
-Total	59	12	0	80%
+Total             -   80 %
+```

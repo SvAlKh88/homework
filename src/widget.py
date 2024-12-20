@@ -65,8 +65,6 @@ if __name__ == "__main__":
 
     print(mask_account_or_card(user_info_by_card_or_account))
 
-
-
     # Пример для карты
     # Visa Platinum 7000792289606361  # входной аргумент
     # Visa Platinum 7000 79** **** 6361  # выход функции

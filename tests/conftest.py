@@ -1,5 +1,6 @@
 import pytest
 
+
 @pytest.fixture
 def info_id():
     return [
