@@ -10,6 +10,8 @@ from src.masks import get_mask_account, get_mask_card_number
 
 def mask_account_or_card(info_by_card_or_account: str) -> str:
     """Получает информацию о карте или счете и возвращеет маску номера карты или счета"""
+    if info_by_card_or_account == "":
+        return "Информацию не ввели"
 
     # Разбиваем строку по пробелам на список
     number_info = info_by_card_or_account.split()
@@ -22,6 +24,8 @@ def mask_account_or_card(info_by_card_or_account: str) -> str:
             mask = get_mask_account(number)
         elif len(number) == 16:
             mask = get_mask_card_number(number)
+        elif len(number) != 20 or len(number) != 16:
+            return " Ошибка в наборе номера "
     else:
         return " Ошибка в наборе номера "
 
@@ -57,9 +61,11 @@ def get_date(user_date: str) -> str:
 if __name__ == "__main__":
 
     # возвращаем строку с замаскиованным номером
-    user_info_by_card_or_account = input("Введите информацию о счете или карте: ")
-    mask_number = mask_account_or_card(user_info_by_card_or_account)
+    user_info_by_card_or_account = str(input("Введите информацию о счете или карте: "))
+
     print(mask_account_or_card(user_info_by_card_or_account))
+
+
 
     # Пример для карты
     # Visa Platinum 7000792289606361  # входной аргумент

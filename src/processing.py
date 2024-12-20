@@ -6,6 +6,9 @@ def filter_by_state(list_of_id: List[Dict[str, Any]], state: str = "EXECUTED") -
     и возвращает новый список словарей, содержащий только те словари,
     у которых ключ соответствует указанному значению"""
 
+    if state != "CANCELED":
+        state = "EXECUTED"
+
     filter_list = []
 
     # перебираем позиции в списке
@@ -28,10 +31,6 @@ def sort_by_date(list_of_id: List[Dict[str, Any]], rev: bool = True) -> List[Dic
 if __name__ == "__main__":
 
     user_state = input("Введите слово для поиска: ")
-
-    if user_state != "CANCELED":
-        user_state = "EXECUTED"
-
     user_list_of_id = [
         {"id": 41428829, "state": "EXECUTED", "date": "2019-07-03T18:35:29.512364"},
         {"id": 939719570, "state": "EXECUTED", "date": "2018-06-30T02:08:58.425572"},

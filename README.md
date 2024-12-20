@@ -123,3 +123,21 @@ Visa Platinum 7000 79** **** 6361  # выход функции
 {'id': 939719570, 'state': 'EXECUTED', 'date': '2018-06-30T02:08:58.425572'}
 ]
 ```
+
+
+### Информация о тестировании
+
+
+File________________/___________________________________________
+                /
+
+
+
+
+
+	       statements	        missing	        excluded	      coverage
+src/masks.py	 14	4	0	                  71%
+src/processing.py	17	4	0	       76%
+src/widget.py	28	4	0	86%
+src/__init__.py	0	0	0	100%
+Total	59	12	0	80%
