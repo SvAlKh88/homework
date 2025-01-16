@@ -1,3 +1,4 @@
+from collections.abc import Iterator
 from typing import Iterable,List
 
 
@@ -9,7 +10,7 @@ def filter_by_currency(transactions: List[dict], currency: str = 'USD') -> Itera
            yield filtered_currency
 
 
-def transaction_descriptions(transactions:List[dict]) -> str:
+def transaction_descriptions(transactions:List[dict]) -> Iterator:
     """ Принимает список словарей с транзакциями и возвращает описание каждой операции по очереди"""
     result =(x.get("description") for x in transactions)
     for x in result:
