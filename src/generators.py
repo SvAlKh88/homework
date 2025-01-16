@@ -1,8 +1,8 @@
 from collections.abc import Iterator
-from typing import Iterable,List
+from typing import List
 
 
-def filter_by_currency(transactions: List[dict], currency: str = 'USD') -> Iterable[dict]:
+def filter_by_currency(transactions: List[dict], currency: str = 'USD') -> Iterator[dict]:
     """ Возвращает итератор, который поочередно выдает транзакции,
     где валюта операции соответствует заданной """
     for filtered_currency in transactions:
