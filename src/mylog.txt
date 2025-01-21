@@ -1,0 +1,4 @@
+my_function ок
+my_function ок
+my_function ок
+my_function error: TypeError Inputs: (), {}
