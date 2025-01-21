@@ -1,0 +1,8 @@
+my_function ок
+my_function ок
+my_functoin error: TypeError Inputs: (), {}
+my_functoin error: TypeError Inputs: (), {}
+my_functoin error: TypeError Inputs: (), {}
+my_function error: TypeError Inputs: (), {}
+my_function ок
+my_function error: TypeError Inputs: (), {}
