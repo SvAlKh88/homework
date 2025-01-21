@@ -1,14 +1,15 @@
 from curses import wrapper
 from functools import wraps
+from typing import Callable, Optional
 
 
-def log(filename=""):
+def log(filename: Optional[str] = "") -> Callable :
     ''' Автоматически логирует начало и конец выполнения функции,
     а также ее результаты или возникшие ошибки '''
 
-    def my_decorator(function):
+    def my_decorator(function: Callable) -> Callable:
         @wraps(function)
-        def wrapper(*args, **kwargs):
+        def wrapper(*args: Optional, **kwargs: Optional):
             try:
                 result = function(*args, **kwargs)
                 if filename:
@@ -28,18 +29,20 @@ def log(filename=""):
 
 if __name__ == "__main__":  # pragma:no cover
     @log()
-    def my_function(x, y):
-       return x + y
+    def my_function(x: int, y: int) -> int:
+        """ Функция суммирует два числа и возвращает результат """
+        return x + y
 
     my_function()
 
 
-    # @log(filename="mylog.txt")
-    # def my_function(x, y):
-    #     return x + y
-    #
-    #
-    # my_function(1, 2)
+    @log(filename="mylog.txt")
+    def my_function(x:int, y: int) -> int:
+        """ Функция суммирует два числа и возвращает результат """
+        return x + y
+
+
+    my_function(1, 2)
 
 # Ожидаемый вывод в лог-файл mylog.txt при успешном выполнении:
 # my_function ok
