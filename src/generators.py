@@ -1,19 +1,39 @@
-import pytest
+from collections.abc import Iterator
+from typing import List
 
 
-@pytest.fixture
-def info_id():
-    return [
-        {"id": 41428829, "state": "EXECUTED", "date": "2019-07-03T18:35:29.512364"},
-        {"id": 939719570, "state": "EXECUTED", "date": "2018-06-30T02:08:58.425572"},
-        {"id": 594226727, "state": "CANCELED", "date": "2018-09-12T21:27:25.241689"},
-        {"id": 615064591, "state": "CANCELED", "date": "2018-10-14T08:21:33.419441"},
-    ]
+def filter_by_currency(transactions: List[dict], currency: str = 'USD') -> Iterator[dict]:
+    """ Возвращает итератор, который поочередно выдает транзакции,
+    где валюта операции соответствует заданной """
+    for filtered_currency in transactions:
+        if filtered_currency["operationAmount"]["currency"]["code"]  == currency:
+           yield filtered_currency
 
 
-@pytest.fixture
-def info_by_transactions():
-    return [
+def transaction_descriptions(transactions:List[dict]) -> Iterator:
+    """ Принимает список словарей с транзакциями и возвращает описание каждой операции по очереди"""
+    result =(x.get("description") for x in transactions)
+    for x in result:
+        yield x
+
+
+def card_number_generator(start: int, end: int) -> str:
+    """ Генерирует номер карты в заданном диапазоне от 0000 0000 0000 0001 до 9999 9999 9999 9999 """
+    if end < start:
+        raise ValueError("Неверный диапазон")
+    if end < 0 or start < 0:
+        raise ValueError("Неверный диапазон")
+    for number in range(start, end + 1):
+        count_0 = "0" * (16 - len(str(number)))
+        number_of_card = count_0 + str(number)
+        yield f"{number_of_card[:4]} {number_of_card[4:8]} {number_of_card[8:12]} {number_of_card[12:]}"
+
+
+
+
+
+if __name__ == "__main__":  # pragma:no cover
+    user_transactions = [
         {
           "id": 939719570,
           "state": "EXECUTED",
@@ -91,3 +111,16 @@ def info_by_transactions():
             "to": "Счет 75651667383060284188"
         }
     ]
+
+
+    usd_transactions = filter_by_currency(user_transactions, 'USD')
+    for transact in usd_transactions:
+        print(transact)
+
+
+    descriptions = transaction_descriptions(user_transactions)
+    for description in range(5):
+        print(next(descriptions))
+
+    for card_number in card_number_generator(9999999999999780, 9999999999999800):
+        print(card_number)
