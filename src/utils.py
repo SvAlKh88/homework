@@ -1,8 +1,9 @@
 import json
 
-def returns_list_of_dictionariesdict(path: str) -> list[dict] :
-    ''' Принимает на вход путь до JSON-файла и 
-    возвращает список словарей с данными о финансовых транзакциях '''
+
+def returns_list_of_dictionaries(path: str) -> list[dict]:
+    """Принимает на вход путь до JSON-файла и
+    возвращает список словарей с данными о финансовых транзакциях"""
     try:
         with open(path) as f:
             try:
@@ -14,6 +15,6 @@ def returns_list_of_dictionariesdict(path: str) -> list[dict] :
     return financial_transaction_data
 
 
-if __name__ == "__main__": # pragma:no cover
-    list_of_dict = returns_list_of_dictionariesdict("../data/operations.json")
+if __name__ == "__main__":  # pragma:no cover
+    list_of_dict = returns_list_of_dictionaries("../data/operations.json")
     print(list_of_dict)
