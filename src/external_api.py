@@ -9,12 +9,9 @@ from src.utils import (
     returns_list_of_dictionaries
 )
 
-load_dotenv(".env")
+load_dotenv()
 API_KEY = os.getenv("API_KEY")
 url = "https://api.apilayer.com/exchangerates_data/convert?"
-
-
-# list_of_opertaions = os.path.join(os.path.dirname(__file__),"..", "data","operations.json")
 
 
 def transaction_amount(
@@ -49,7 +46,7 @@ def transaction_amount(
     if amount_usd != 0:  # переводим usd в рубли. проверем не ноль ли сумма, тк с запрос нулем выдает ошибку
 
         payload = {"amount": amount_usd, "from": "USD", "to": "RUB"}
-        headers = {"apikey": "0yYhp0GybyUDJQoHDED67X0UAwC56y8R"}
+        headers = {"apikey": API_KEY}
         response = requests.get(url, headers=headers, params=payload)
         amount_usd_to_rub = response.json()["result"]
     else:
@@ -57,7 +54,7 @@ def transaction_amount(
 
     if amount_eur != 0:  # переводим eur в рубли. проверем не ноль ли сумма, тк с запрос нулем выдаеи ошибку
         payload_eur = {"amount": 6, "from": "EUR", "to": "RUB"}
-        headers = {"apikey": "0yYhp0GybyUDJQoHDED67X0UAwC56y8R"}
+        headers = {"apikey":API_KEY}
         response_eur = requests.get(url, headers=headers, params=payload_eur)
         print(response_eur.json())
         amount_eur_to_rub = response_eur.json()["result"]
@@ -73,9 +70,7 @@ def transaction_amount(
 
 
 if __name__ == "__main__":  # pragma:no cover
-    list_of_operations = returns_list_of_dictionaries(
-        "../data/operations.json"
-    )  # список транзакций в формате Python-объекта
+    list_of_operations = returns_list_of_dictionaries("../data/operations.json")  # список транзакций в формате Python-объекта
     # print(returns_list_of_dictionaries("../data/operations.json"))
     result = transaction_amount(transaction_list=list_of_operations)
     print(result)
