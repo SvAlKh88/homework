@@ -26,7 +26,7 @@ def get_mask_account(user_mask_account: Union[str, int]) -> str:
 # 73654108430135874305  # входной аргумент
 # **4305  # выход функции
 
-if __name__ == "__main__": # pragma:no cover
+if __name__ == "__main__":  # pragma:no cover
     user_card_number_input = str(input("Введите номер карты: "))
     user_mask_account_input = str(input("Введите номер счета: "))
     print(get_mask_card_number(user_card_number_input))

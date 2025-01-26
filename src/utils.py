@@ -1,7 +1,10 @@
 import json
+from typing import (
+    Any
+)
 
 
-def returns_list_of_dictionaries(path: str) -> list[dict]:
+def returns_list_of_dictionaries(path: str) -> Any:
     """Принимает на вход путь до JSON-файла и
     возвращает список словарей с данными о финансовых транзакциях"""
     try:
