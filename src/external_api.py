@@ -82,6 +82,3 @@ def total_amount_of_transactions_in_rubles() -> float:
 
 if __name__ == "__main__":  # pragma:no cover
     print(total_amount_of_transactions_in_rubles())
-
-
-

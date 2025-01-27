@@ -1,7 +1,7 @@
 from src.utils import returns_list_of_dictionaries
 from unittest.mock import patch, mock_open
 import json
-import pytest
+
 
 @patch("builtins.open", new_callable=mock_open)
 @patch("json.load", side_effect=json.JSONDecodeError("Expecting value", "", 0))
