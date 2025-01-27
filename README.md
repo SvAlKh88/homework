@@ -257,7 +257,7 @@ src/processing.py   -  100 %
 src/masks.py        -  100 %
 src/decorators.py   -  100 %
 src/utils.py        -  100 %
-src/external_api.py -  100 %
+src/external_api.py -   91 %
 
 Total             -   100 %
 ```
