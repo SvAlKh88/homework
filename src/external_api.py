@@ -77,8 +77,11 @@ def total_amount_of_transactions_in_rubles() -> float:
     total_usd = converts_usd_into_rub(amount_usd)
     total_eur = converts_eur_into_rub(amount_eur)
     amount = round((amount_rub + total_usd + total_eur), 2)
-    return print(amount)
+    return amount
 
 
 if __name__ == "__main__":  # pragma:no cover
-    total_amount_of_transactions_in_rubles()
+    print(total_amount_of_transactions_in_rubles())
+
+
+
