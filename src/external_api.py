@@ -16,8 +16,7 @@ load_dotenv()
 API_KEY = os.getenv("API_KEY")
 url = "https://api.apilayer.com/exchangerates_data/convert?"
 
-# возвращенный список словарей с данными о финансовых транзакциях из функции  src.utils
-list_of_operations = returns_list_of_dictionaries("../data/operations.json")
+
 
 
 def transaction_amount(transaction_list: Any) -> tuple[float, float, float]:
@@ -71,7 +70,7 @@ def converts_eur_into_rub(amount_eur: float) -> Any:
     return amount_eur_to_rub
 
 
-def total_amount_of_transactions_in_rubles() -> float:
+def total_amount_of_transactions_in_rubles(list_of_operations) -> float:
     """Возвращает сумму транзакции в рублях"""
     amount_rub, amount_usd, amount_eur = transaction_amount(list_of_operations)
     total_usd = converts_usd_into_rub(amount_usd)
@@ -81,4 +80,6 @@ def total_amount_of_transactions_in_rubles() -> float:
 
 
 if __name__ == "__main__":  # pragma:no cover
-    print(total_amount_of_transactions_in_rubles())
+    # возвращенный список словарей с данными о финансовых транзакциях из функции  src.utils
+    list_of_operations = returns_list_of_dictionaries("../data/operations.json")
+    print(total_amount_of_transactions_in_rubles(list_of_operations))

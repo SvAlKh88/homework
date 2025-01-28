@@ -52,46 +52,11 @@ def test_transaction_amount(): #проверяем подсчет значени
   }]) == (31957.58, 8221.37, 0)
 
 
-assert transaction_amount(
-    [
-        {
-            "id": 441945886,
-            "state": "EXECUTED",
-            "date": "2019-08-26T10:50:58.294041",
-            "operationAmount": {
-                "amount": "31957.58",
-                "currency": {
-                    "name": "руб.",
-                    "code": "RUB"
-                }
-            },
-            "description": "Перевод организации",
-            "from": "Maestro 1596837868705199",
-            "to": "Счет 64686473678894779589"
-        },
-        {
-            "id": 41428829,
-            "state": "EXECUTED",
-            "date": "2019-07-03T18:35:29.512364",
-            "operationAmount": {
-                "amount": "8221.37",
-                "currency": {
-                    "name": "руб.",
-                    "code": "EUR"
-                }
-            },
-            "description": "Перевод организации",
-            "from": "MasterCard 7158300734726758",
-            "to": "Счет 35383033474447895560"
-        }]) == (31957.58, 0, 8221.37)
-
-
-
-def test_transaction_amount_error(transaction_information): #проверяем на отсутствие ключа
+def test_transaction_amount_error_one(transaction_information): #проверяем на отсутствие ключа
     assert transaction_amount(transaction_information) == (1.00, 2.00, 3.00)
 
 
-def test_transaction_amount_error(transaction_information_two): #проверяем на отсутствие ключа
+def test_transaction_amount_error_two(transaction_information_two): #проверяем на отсутствие ключа
     assert transaction_amount(transaction_information_two) == (100.00, 1.00, 1.00)
 
 
@@ -115,11 +80,11 @@ def test_converts_eur_into_rub(mock_get):
 @patch('src.external_api.converts_usd_into_rub')
 @patch('src.external_api.converts_eur_into_rub')
 @patch('src.external_api.transaction_amount')
-def test_total_amount_of_transactions_in_rubles(mock_transaction_amount, mock_eur, mock_usd):
+def test_total_amount_of_transactions_in_rubles(mock_transaction_amount, mock_eur, mock_usd, transaction_information_two):
     mock_usd.return_value = 75.0
     mock_eur.return_value = 85.0
     mock_transaction_amount.return_value = (100.0, 100.0, 100.0)
-    assert total_amount_of_transactions_in_rubles() == 260.0
+    assert total_amount_of_transactions_in_rubles(transaction_information_two) == 260.0
     mock_eur.assert_called()
     mock_usd.assert_called()
     mock_transaction_amount.assert_called()

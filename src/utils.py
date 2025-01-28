@@ -8,7 +8,7 @@ def returns_list_of_dictionaries(path: str) -> Any:
     """Принимает на вход путь до JSON-файла и
     возвращает список словарей с данными о финансовых транзакциях"""
     try:
-        with open(path) as f:
+        with open(path, encoding="utf-8") as f:
             try:
                 financial_transaction_data = json.load(f)
             except json.JSONDecodeError:

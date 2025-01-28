@@ -8,7 +8,7 @@ import json
 def test_returns_list_of_dictionaries_error(mock_json_load, mock_open):
     result = returns_list_of_dictionaries("fake_path.json")
     assert result == []  # Ожидаем, что функция вернёт пустой список
-    mock_open.assert_called_once_with("fake_path.json")
+    mock_open.assert_called_once_with("fake_path.json", encoding='utf-8')
     mock_json_load.assert_called_once()
 
 
@@ -17,7 +17,7 @@ def test_returns_list_of_dictionaries_error(mock_json_load, mock_open):
 def test_returns_list_of_dictionaries_not_found(mock_json_load, mock_open):
     result = returns_list_of_dictionaries("fake_path.json")
     assert result == []  # Ожидаем, что функция вернёт пустой список
-    mock_open.assert_called_once_with("fake_path.json")
+    mock_open.assert_called_once_with("fake_path.json", encoding='utf-8')
     mock_json_load.assert_called_once()
 
 
