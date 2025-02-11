@@ -250,12 +250,14 @@ my_function error: тип ошибки. Inputs: (1, 2), {}, где тип оши
 ### Информация о тестировании
 
 ```
-src/__init__.py   -  100 %
-src/generators.py -  100 %
-src/widget.py     -  100 %
-src/processing.py -  100 %
-src/masks.py      -  100 %
-src/decorators.py -  100 %
+src/__init__.py     -  100 %
+src/generators.py   -  100 %
+src/widget.py       -  100 %
+src/processing.py   -  100 %
+src/masks.py        -  100 %
+src/decorators.py   -  100 %
+src/utils.py        -  100 %
+src/external_api.py -   96 %
 
-Total             -   100 %
+Total             -     99 %
 ```

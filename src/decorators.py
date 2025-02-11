@@ -1,11 +1,5 @@
-from functools import (
-    wraps
-)
-from typing import (
-    Any,
-    Callable,
-    Optional
-)
+from functools import wraps
+from typing import Any, Callable, Optional
 
 
 def log(filename: Optional[str] = "") -> Callable:
@@ -29,7 +23,9 @@ def log(filename: Optional[str] = "") -> Callable:
                         file.write(f"{function.__name__} error: {error.__class__.__name__} Inputs: {args}, {kwargs}\n")
                 else:
                     print(f"{function.__name__} error: {error.__class__.__name__} Inputs: {args}, {kwargs}\n")
+
         return wrapper
+
     return my_decorator
 
 

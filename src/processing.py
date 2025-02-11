@@ -28,7 +28,7 @@ def sort_by_date(list_of_id: List[Dict[str, Any]], rev: bool = True) -> List[Dic
     return sorted_list
 
 
-if __name__ == "__main__": # pragma:no cover
+if __name__ == "__main__":  # pragma:no cover
 
     user_state = input("Введите слово для поиска: ")
     user_list_of_id = [
