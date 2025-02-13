@@ -59,15 +59,3 @@ def test_returns_list_of_dictionaries(mock_get):
         }
         ]
     mock_get.assert_called()
-
-
-
-
-
-
-
-
-
-
-
-#
