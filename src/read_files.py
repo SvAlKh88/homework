@@ -1,6 +1,7 @@
 import csv
-import pandas as pd
 from typing import Any
+
+import pandas as pd
 
 
 def read_file_csv(file_csv_path: str) -> list[Any]:

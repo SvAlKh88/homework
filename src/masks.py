@@ -1,11 +1,12 @@
+import logging
+import os
 from typing import Union
 
-
-import logging
-
+dir_path = os.path.dirname(os.path.realpath(__file__))
+logs_path = os.path.join(dir_path, "..", "logs", "masks.log")
 
 logger = logging.getLogger("masks")
-file_handler = logging.FileHandler('../logs/masks.log',"w")
+file_handler = logging.FileHandler(logs_path, "w")
 file_formatter = logging.Formatter("%(asctime)s %(filename)s %(levelname)s: %(message)s)")
 file_handler.setFormatter(file_formatter)
 logger.addHandler(file_handler)

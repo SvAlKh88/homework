@@ -1,8 +1,8 @@
-from unittest.mock import patch, mock_open, Mock
+from unittest.mock import patch
 import pandas as pd
-import pytest
 from src.read_files import read_file_xlsx, read_file_csv
-import unittest
+import os
+
 
 
 mocked_csv_df = [{
@@ -17,10 +17,13 @@ mocked_csv_df = [{
     'description': 'Перевод организации',
 }]
 
+dir_path = os.path.dirname(os.path.realpath(__file__))
+file_path = os.path.join(dir_path, '..', 'data', 'transactions.csv')
+
 
 @patch('csv.DictReader', return_value=mocked_csv_df)
 def test_read_file_csv(mocked_csv_dictreader):
-    result = read_file_csv("../data/transactions.csv")
+    result = read_file_csv(file_path)
     expected = list(mocked_csv_df)
     assert result == expected
 
@@ -31,9 +34,6 @@ def test_read_file_csv_no_file():
 
 def test_read_file_csv_error():
         assert read_file_csv("../scv/transactions_excel.xlsx") == []
-
-
-
 
 
 mocked_df = pd.DataFrame({
