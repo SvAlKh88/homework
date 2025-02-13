@@ -1,9 +1,8 @@
-from typing import Union
-
-
 import logging
 import os
-from typing import Union
+from typing import (
+    Union
+)
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
 logs_path = os.path.join(dir_path, "..", "logs", "masks.log")

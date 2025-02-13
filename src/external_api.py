@@ -1,10 +1,16 @@
 import os
-from typing import Any
+from typing import (
+    Any
+)
 
 import requests
-from dotenv import load_dotenv
+from dotenv import (
+    load_dotenv
+)
 
-from src.utils import returns_list_of_dictionaries
+from src.utils import (
+    returns_list_of_dictionaries
+)
 
 load_dotenv()
 API_KEY = os.getenv("API_KEY")
