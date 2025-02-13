@@ -15,82 +15,52 @@ def info_id():
 def info_by_transactions():
     return [
         {
-          "id": 939719570,
-          "state": "EXECUTED",
-          "date": "2018-06-30T02:08:58.425572",
-          "operationAmount":
-              {
-              "amount": "9824.07",
-              "currency": {
-                  "name": "USD",
-                  "code": "USD"
-              }
-          },
-          "description": "Перевод организации",
-          "from": "Счет 75106830613657916952",
-          "to": "Счет 11776614605963066702"
+            "id": 939719570,
+            "state": "EXECUTED",
+            "date": "2018-06-30T02:08:58.425572",
+            "operationAmount": {"amount": "9824.07", "currency": {"name": "USD", "code": "USD"}},
+            "description": "Перевод организации",
+            "from": "Счет 75106830613657916952",
+            "to": "Счет 11776614605963066702",
         },
         {
-              "id": 142264268,
-              "state": "EXECUTED",
-              "date": "2019-04-04T23:20:05.206878",
-              "operationAmount": {
-                  "amount": "79114.93",
-                  "currency": {
-                      "name": "USD",
-                      "code": "USD"
-                  }
-              },
-              "description": "Перевод со счета на счет",
-              "from": "Счет 19708645243227258542",
-              "to": "Счет 75651667383060284188"
+            "id": 142264268,
+            "state": "EXECUTED",
+            "date": "2019-04-04T23:20:05.206878",
+            "operationAmount": {"amount": "79114.93", "currency": {"name": "USD", "code": "USD"}},
+            "description": "Перевод со счета на счет",
+            "from": "Счет 19708645243227258542",
+            "to": "Счет 75651667383060284188",
         },
         {
-              "id": 142264258,
-              "state": "EXECUTED",
-              "date": "2019-04-04T23:20:08.206878",
-              "operationAmount": {
-                  "amount": "79114.93",
-                  "currency": {
-                      "name": "USD",
-                      "code": "USR"
-                  }
-              },
-              "description": "Перевод со счета на счет",
-              "from": "Счет 19708645243227258542",
-              "to": "Счет 75651667383060284188"
+            "id": 142264258,
+            "state": "EXECUTED",
+            "date": "2019-04-04T23:20:08.206878",
+            "operationAmount": {"amount": "79114.93", "currency": {"name": "USD", "code": "USR"}},
+            "description": "Перевод со счета на счет",
+            "from": "Счет 19708645243227258542",
+            "to": "Счет 75651667383060284188",
         },
         {
             "id": 142264259,
             "state": "EXECUTED",
             "date": "2019-04-04T23:20:08.206878",
-            "operationAmount": {
-                "amount": "79114.93",
-                "currency": {
-                    "name": "USD",
-                    "code": "USD"
-                }
-            },
+            "operationAmount": {"amount": "79114.93", "currency": {"name": "USD", "code": "USD"}},
             "description": "Перевод с карты на карту",
             "from": "Счет 19708645243227258542",
-            "to": "Счет 75651667383060284188"
+            "to": "Счет 75651667383060284188",
         },
         {
             "id": 142264256,
             "state": "EXECUTED",
             "date": "2019-04-04T23:20:08.206878",
-            "operationAmount": {
-                "amount": "79114.93",
-                "currency": {
-                    "name": "USD",
-                    "code": "USR"
-                }
-            },
+            "operationAmount": {"amount": "79114.93", "currency": {"name": "USD", "code": "USR"}},
             "description": "Перевод организации",
             "from": "Счет 19708645243227258542",
-            "to": "Счет 75651667383060284188"
-        }
+            "to": "Счет 75651667383060284188",
+        },
     ]
+
 
 @pytest.fixture
 def transaction_information():
@@ -99,61 +69,37 @@ def transaction_information():
             "id": 441945886,
             "state": "EXECUTED",
             "date": "2019-08-26T10:50:58.294041",
-            "operationAmount": {
-                "amount": "1.00",
-                "currency": {
-                    "name": "руб.",
-                    "code": "RUB"
-                }
-            },
+            "operationAmount": {"amount": "1.00", "currency": {"name": "руб.", "code": "RUB"}},
             "description": "Перевод организации",
             "from": "Maestro 1596837868705199",
-            "to": "Счет 64686473678894779589"
+            "to": "Счет 64686473678894779589",
         },
         {
             "id": 441945886,
             "state": "EXECUTED",
             "date": "2019-08-26T10:50:58.294041",
-            "operationAmount": {
-                "amount": "2.00",
-                "currency": {
-                    "name": "USD",
-                    "code": "USD"
-                }
-            },
+            "operationAmount": {"amount": "2.00", "currency": {"name": "USD", "code": "USD"}},
             "description": "Перевод организации",
             "from": "Maestro 1596837868705199",
-            "to": "Счет 64686473678894779589"
+            "to": "Счет 64686473678894779589",
         },
         {
             "id": 441945886,
             "state": "EXECUTED",
             "date": "2019-08-26T10:50:58.294041",
-            "operationAmount": {
-                "amount": "3.00",
-                "currency": {
-                    "name": "EUR",
-                    "code": "EUR"
-                }
-            },
+            "operationAmount": {"amount": "3.00", "currency": {"name": "EUR", "code": "EUR"}},
             "description": "Перевод организации",
             "from": "Maestro 1596837868705199",
-            "to": "Счет 64686473678894779589"
+            "to": "Счет 64686473678894779589",
         },
         {
             "id": 441945886,
             "state": "EXECUTED",
             "date": "2019-08-26T10:50:58.294041",
-            "operatnAmount": {
-                "amount": "31957.58",
-                "currency": {
-                    "name": "руб.",
-                    "code": "RUB"
-                }
-            },
+            "operatnAmount": {"amount": "31957.58", "currency": {"name": "руб.", "code": "RUB"}},
             "description": "Перевод организации",
             "from": "Maestro 1596837868705199",
-            "to": "Счет 64686473678894779589"
+            "to": "Счет 64686473678894779589",
         },
     ]
 
@@ -165,46 +111,27 @@ def transaction_information_two():
             "id": 441945886,
             "state": "EXECUTED",
             "date": "2019-08-26T10:50:58.294041",
-            "operationAmount": {
-                "amount": "100.00",
-                "currency": {
-                    "name": "руб.",
-                    "code": "RUB"
-                }
-            },
+            "operationAmount": {"amount": "100.00", "currency": {"name": "руб.", "code": "RUB"}},
             "description": "Перевод организации",
             "from": "Maestro 1596837868705199",
-            "to": "Счет 64686473678894779589"
+            "to": "Счет 64686473678894779589",
         },
         {
             "id": 441945886,
             "state": "EXECUTED",
             "date": "2019-08-26T10:50:58.294041",
-            "operationAmount": {
-                "amount": "1.00",
-                "currency": {
-                    "name": "USD",
-                    "code": "USD"
-                }
-            },
+            "operationAmount": {"amount": "1.00", "currency": {"name": "USD", "code": "USD"}},
             "description": "Перевод организации",
             "from": "Maestro 1596837868705199",
-            "to": "Счет 64686473678894779589"
+            "to": "Счет 64686473678894779589",
         },
         {
             "id": 441945886,
             "state": "EXECUTED",
             "date": "2019-08-26T10:50:58.294041",
-            "operationAmount": {
-                "amount": "1.00",
-                "currency": {
-                    "name": "EUR",
-                    "code": "EUR"
-                }
-            },
+            "operationAmount": {"amount": "1.00", "currency": {"name": "EUR", "code": "EUR"}},
             "description": "Перевод организации",
             "from": "Maestro 1596837868705199",
-            "to": "Счет 64686473678894779589"
-        }
+            "to": "Счет 64686473678894779589",
+        },
     ]
-

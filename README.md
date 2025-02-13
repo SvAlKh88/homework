@@ -266,6 +266,7 @@ src/masks.py        -  100 %
 src/decorators.py   -  100 %
 src/utils.py        -  100 %
 src/external_api.py -   96 %
+src/read files.py   -   86%
 
-Total             -     99 %
+Total             -     97 %
 ```

@@ -17,8 +17,6 @@ API_KEY = os.getenv("API_KEY")
 url = "https://api.apilayer.com/exchangerates_data/convert?"
 
 
-
-
 def transaction_amount(transaction_list: Any) -> tuple[float, float, float]:
     """Принимает на вход транзакцию и возвращает сумму всех транзакции,произведенных в разных валютах"""
 

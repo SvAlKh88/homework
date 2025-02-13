@@ -1,5 +1,11 @@
-from functools import wraps
-from typing import Any, Callable, Optional
+from functools import (
+    wraps
+)
+from typing import (
+    Any,
+    Callable,
+    Optional
+)
 
 
 def log(filename: Optional[str] = "") -> Callable:
