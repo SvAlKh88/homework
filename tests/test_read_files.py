@@ -10,19 +10,17 @@ from src.read_files import (
     read_file_xlsx
 )
 
-mocked_csv_df = [
-    {
-        "id": 1,
-        "state": "EXECUTED",
-        "date": "2020-12-06T23:00:58Z",
-        "amount": 29740,
-        "currency_name": "Sol",
-        "currency_code": "COP",
-        "from": "Discover 3172601889670065",
-        "to": "Discover 0720428384694643",
-        "description": "Перевод организации",
-    }
-]
+mocked_csv_df = [{
+    'id': 1,
+    'state': 'EXECUTED',
+    'date': '2020-12-06T23:00:58Z',
+    'amount': 29740,
+    'currency_name': 'Sol',
+    'currency_code': 'COP',
+    'from': 'Discover 3172601889670065',
+    'to': 'Discover 0720428384694643',
+    'description': 'Перевод организации',
+}]
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
 file_path = os.path.join(dir_path, "..", "data", "transactions.csv")
