@@ -5,7 +5,10 @@
 # Разделять строку на 2 аргумента(отдельно имя, отдельно номер) нельзя!
 
 # from src import masks
-from src.masks import get_mask_account, get_mask_card_number
+from src.masks import (
+    get_mask_account,
+    get_mask_card_number
+)
 
 
 def mask_account_or_card(info_by_card_or_account: str) -> str:

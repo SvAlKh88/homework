@@ -246,6 +246,14 @@ my_function error: тип ошибки. Inputs: (1, 2), {}, где тип оши
 
 ```
 
+- ### Функция, котора cчитывает CSV файл и возвращает список словарей  
+    `read_file_csv'
+
+
+- ### Функция, котора cчитывает Excel файл и возвращает список словарей  
+    `read_file_xlsx'
+
+
 
 ### Информация о тестировании
 
@@ -258,6 +266,7 @@ src/masks.py        -  100 %
 src/decorators.py   -  100 %
 src/utils.py        -  100 %
 src/external_api.py -   96 %
+src/read files.py   -   86%
 
-Total             -     99 %
+Total             -     97 %
 ```
