@@ -4,6 +4,8 @@ import os
 from typing import (
     Any
 )
+import re
+
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
 logs_path = os.path.join(dir_path, "..", "logs", "utils.log")
@@ -38,6 +40,26 @@ def returns_list_of_dictionaries(path: str) -> Any:
     return financial_transaction_data
 
 
+def string_search(list_of_financial_transaction_data, my_string) -> list:
+    """ Возвращает список словарей, у которых в описании есть данная строка """
+
+    data_by_description =[]
+    for transaction in list_of_financial_transaction_data:
+        if 'description' in transaction:
+            pattern = re.compile(my_string.lower())
+            search_description = re.search(pattern, transaction['description'].lower())
+            if search_description != None:
+                data_by_description.append(transaction)
+    return data_by_description
+
+
 if __name__ == "__main__":  # pragma:no cover
     list_of_dict = returns_list_of_dictionaries("../data/operations.json")
     print(list_of_dict)
+
+    user_string = 'неперевод'
+    list_on_request = string_search(list_of_dict, user_string)
+    print(list_on_request)
+
+
+
