@@ -5,7 +5,7 @@ from typing import (
     Any
 )
 import re
-
+from xml.etree.ElementTree import indent
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
 logs_path = os.path.join(dir_path, "..", "logs", "utils.log")
@@ -57,7 +57,7 @@ if __name__ == "__main__":  # pragma:no cover
     list_of_dict = returns_list_of_dictionaries("../data/operations.json")
     print(list_of_dict)
 
-    user_string = 'неперевод'
+    user_string = 'перевод'
     list_on_request = string_search(list_of_dict, user_string)
     print(list_on_request)
 
