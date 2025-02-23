@@ -6,7 +6,7 @@ from unittest.mock import (
 )
 
 from src.utils import (
-    returns_list_of_dictionaries, string_search
+    returns_list_of_dictionaries, string_search, sort_by_category
 )
 
 
@@ -95,3 +95,18 @@ list_of_financial_transaction = [
     ])
 def test_string_search(list_of_financial_transaction, my_string, expected):
     assert string_search(list_of_financial_transaction, my_string) == expected
+
+
+@pytest.mark.parametrize(
+    "list_of_financial_transaction, list_of_categories, expected",
+    [(list_of_financial_transaction, ['Перевод организации', 'Открытие счета'],
+      {'Перевод организации': 2, 'Открытие счета': 1}),
+     (list_of_financial_transaction, ['Перевод организации', 'Открытие'], {'Перевод организации': 2}),
+     (list_of_financial_transaction, [], {}),
+     ([{'id': 441945886, 'state': 'EXECUTED', 'date': '2019-08-26T10:50:58.294041'},
+       {'id': 939719570, 'state': 'EXECUTED', 'date': '2018-06-30T02:08:58.425572'}],
+      ['Перевод организации', 'Открытие счета'], {})
+])
+
+def test_sort_by_category(list_of_financial_transaction, list_of_categories, expected):
+    assert sort_by_category(list_of_financial_transaction, list_of_categories) == expected
