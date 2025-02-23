@@ -1,17 +1,13 @@
 import os
-from unittest.mock import (
-    patch
-)
+from unittest.mock import patch
 
-from dotenv import (
-    load_dotenv
-)
+from dotenv import load_dotenv
 
 from src.external_api import (
     converts_eur_into_rub,
     converts_usd_into_rub,
     total_amount_of_transactions_in_rubles,
-    transaction_amount
+    transaction_amount,
 )
 
 load_dotenv()

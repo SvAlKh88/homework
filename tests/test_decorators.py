@@ -1,6 +1,4 @@
-from src.decorators import (
-    log
-)
+from src.decorators import log
 
 
 def test_log_captured_in_console(capsys) -> None:

@@ -1,12 +1,10 @@
 import json
 import logging
 import os
-from typing import (
-    Any, Counter
-)
+from typing import Any
 import re
 from collections import Counter
-from xml.etree.ElementTree import indent
+
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
 logs_path = os.path.join(dir_path, "..", "logs", "utils.log")
@@ -42,51 +40,38 @@ def returns_list_of_dictionaries(path: str) -> Any:
 
 
 def string_search(list_of_financial_transaction_data: Any, my_string: str) -> list:
-    """ Возвращает список словарей, у которых в описании есть данная строка """
+    """Возвращает список словарей, у которых в описании есть данная строка"""
 
-    data_by_description =[]
+    data_by_description = []
     for transaction in list_of_financial_transaction_data:
-        if 'description' in transaction:
+        if "description" in transaction:
             pattern = re.compile(my_string.lower())
-            search_description = re.search(pattern, transaction['description'].lower())
-            if search_description != None:
+            search_description = re.search(pattern, transaction["description"].lower())
+            if search_description is not None:
                 data_by_description.append(transaction)
     return data_by_description
 
 
-
 def sort_by_category(list_of_financial_transaction_data: Any, list_of_categories: Any) -> Any:
-    """  Возвращает словарь, в котором ключи — это названия категорий, а значения — это количество операций в каждой категории """
+    """Возвращает словарь, в котором ключи — это названия категорий,
+    а значения — это количество операций в каждой категории"""
     list_of_description = []
     for financial_transaction in list_of_financial_transaction_data:
-        if 'description' in financial_transaction:
-            if financial_transaction['description'] in list_of_categories:
-                list_of_description.append(financial_transaction['description'])
-
+        if "description" in financial_transaction:
+            if financial_transaction["description"] in list_of_categories:
+                list_of_description.append(financial_transaction["description"])
     list_of_categories_sorted = Counter(list_of_description)
     return list_of_categories_sorted
+
 
 if __name__ == "__main__":  # pragma:no cover
     list_of_dict = returns_list_of_dictionaries("../data/operations.json")
     print(list_of_dict)
 
-
-    user_string = 'перевод'
+    user_string = "перевод"
     list_on_request = string_search(list_of_dict, user_string)
     print(list_on_request)
 
-    user_list_of_categories = ['Открытие вклада', 'Перевод с карты на карту']
+    user_list_of_categories = ["Открытие вклада", "Перевод с карты на карту"]
     user_list_of_categories = sort_by_category(list_of_dict, user_list_of_categories)
     print(user_list_of_categories)
-
-
-
-#     Перевод организации': 40,
-#     'Перевод с карты на карту': 19,
-#     'Перевод с карты на счет': 16,
-#     'Перевод со счета на счет': 15,
-#     'Открытие вклада': 10})
-
-
-
-

@@ -1,7 +1,5 @@
 import csv
-from typing import (
-    Any
-)
+from typing import Any
 
 import pandas as pd
 
