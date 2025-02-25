@@ -1,19 +1,13 @@
-# Аргументом может быть строка типа
-# Visa Platinum 7000792289606361
-# ,или Maestro 7000792289606361
-# , или Счет 73654108430135874305.
-# Разделять строку на 2 аргумента(отдельно имя, отдельно номер) нельзя!
-
-# from src import masks
 from src.masks import get_mask_account, get_mask_card_number
 
 
 def mask_account_or_card(info_by_card_or_account: str) -> str:
     """Получает информацию о карте или счете и возвращеет маску номера карты или счета"""
     if info_by_card_or_account == "":
-        return "Информацию не ввели"
+        return ""
 
     # Разбиваем строку по пробелам на список
+
     number_info = info_by_card_or_account.split()
     number = str(number_info[-1])
     mask = ""

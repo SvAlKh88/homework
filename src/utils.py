@@ -64,8 +64,11 @@ def sort_by_category(list_of_financial_transaction_data: Any, list_of_categories
     return list_of_categories_sorted
 
 
+
+
 if __name__ == "__main__":  # pragma:no cover
-    list_of_dict = returns_list_of_dictionaries("../data/operations.json")
+    user_file_json_path = "../data/operations.json"
+    list_of_dict = returns_list_of_dictionaries(user_file_json_path)
     print(list_of_dict)
 
     user_string = "перевод"

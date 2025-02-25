@@ -1,22 +1,24 @@
 from typing import Any, Dict, List
 
 
-def filter_by_state(list_of_id: List[Dict[str, Any]], state: str = "EXECUTED") -> List[Dict[str, Any]]:
+def filter_by_state(list_of_id: List[Dict[str, Any]], state: str="EXECUTED") -> List[Dict[str, Any]]:
     """Принимает список словарей и опционально значение для ключа
     и возвращает новый список словарей, содержащий только те словари,
     у которых ключ соответствует указанному значению"""
 
-    if state != "CANCELED":
-        state = "EXECUTED"
+
 
     filter_list = []
 
     # перебираем позиции в списке
     for info_about_id in list_of_id:
         # перебираем по ключу "state"
-        if info_about_id["state"] == state:
+        if "state" in info_about_id:
+            if info_about_id["state"] == state:
             # если значение равно заданному, добавляем в новый список
-            filter_list.append(info_about_id)
+                filter_list.append(info_about_id)
+        else:
+            continue
     return filter_list
 
 
@@ -40,7 +42,7 @@ if __name__ == "__main__":  # pragma:no cover
     print(filter_by_state(user_list_of_id, user_state))
 
     # rev изменять в команде print
-    print(sort_by_date(user_list_of_id, True))
+    # print(sort_by_date(user_list_of_id, True))
 
     # Пример входных данных для проверки функции
     # [{'id': 41428829, 'state': 'EXECUTED', 'date': '2019-07-03T18:35:29.512364'},
