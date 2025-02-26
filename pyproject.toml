@@ -7,6 +7,9 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.13"
+requests = "^2.32.3"
+python-dotenv = "^1.0.1"
+pandas = "^2.2.3"
 
 
 [tool.poetry.group.lint.dependencies]
@@ -15,12 +18,17 @@ mypy = "^1.13.0"
 black = "^24.10.0"
 isort = "^5.13.2"
 
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.3.4"
+pytest-cov = "^6.0.0"
+
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.isort]
-line_length = 119
+line_length = 11
 multi_line_output = 3
 
 [tool.black]
